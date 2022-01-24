@@ -1,0 +1,38 @@
+﻿@page
+@model proiect.Pages.Flori.IndexModel
+
+@{
+    ViewData["Title"] = "Flori";
+}
+
+<h1>Diverse Flori</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Flori[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flori[0].Nume)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Flori) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nume)
+                </td>
+               
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
